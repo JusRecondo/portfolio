@@ -11,19 +11,43 @@ document.addEventListener( "DOMContentLoaded", () => {
     const message = document.querySelector( '#message' );
     const errorMessage = document.querySelector( '.error-message' );
     const submit = document.querySelector( '#submit' );
+    const contactTemplate = 'template_16z0p8m';
+    const inscripcionTemplate = 'template_u0lj23h';
 
-    contactForm.addEventListener( 'submit', ( e ) => {
-        e.preventDefault();     
-        let errorMessages = validateForm( name, pronouns, email, message );
+    if ( contactForm ) {
+        contactForm.addEventListener( 'submit', ( e ) => {
+            e.preventDefault();     
+            let errorMessages = validateForm( name, pronouns, email, message, null, null );
+    
+            if( errorMessages.length > 0 ) {
+                errorMessage.innerText = errorMessages.join( '\n' );
+                errorMessage.classList.remove( 'hidden' );
+            } else {
+                errorMessage.classList.add( 'hidden' );           
+                sendMail( name, pronouns, email, message, null, null, submit, contactTemplate );
+            }
+        } );
+    }
+    
 
-        if( errorMessages.length > 0 ) {
-            errorMessage.innerText = errorMessages.join( '\n' );
-            errorMessage.classList.remove( 'hidden' );
-        } else {
-            errorMessage.classList.add( 'hidden' );           
-            sendMail( name, pronouns, email, message, submit );
-        }
-    } );
+    const inscripcionForm = document.querySelector( '#inscripcion-form' );
+    const paymentMethod = document.querySelector( 'input[name="payment-method"]' );
+    const taller = document.querySelector( 'input[name="taller"]' );
+
+    if ( inscripcionForm ) {
+        inscripcionForm.addEventListener( 'submit', ( e ) => {
+            e.preventDefault();     
+            let errorMessages = validateForm( name, pronouns, email, message, taller, paymentMethod );
+    
+            if( errorMessages.length > 0 ) {
+                errorMessage.innerText = errorMessages.join( '\n' );
+                errorMessage.classList.remove( 'hidden' );
+            } else {
+                errorMessage.classList.add( 'hidden' );           
+                sendMail( name, pronouns, email, message, taller, paymentMethod, submit, inscripcionTemplate);
+            }
+        } );
+    }
 
 
 });
@@ -33,16 +57,16 @@ const navResponsive = () => {
     const burgerMenuBtn = document.querySelector( '#burger-menu-toggler' );
     const menuItems = document.querySelectorAll( '.menu-item' );
 
-    burgerMenuBtn.addEventListener( 'click', () => {
-        document.body.classList.toggle( 'mobile-menu-active' );
-    });
+    if( burgerMenuBtn ) {
+        burgerMenuBtn.addEventListener( 'click', () => {
+            document.body.classList.toggle( 'mobile-menu-active' );
+        });
+    }
 
     menuItems.forEach( ( menuItem ) => {  
-
         menuItem.addEventListener('click', function() {
 
             document.body.classList.remove( 'mobile-menu-active' );
-
 
             let currentItem = document.querySelector( '.active' );
             currentItem.classList.remove( 'active' );
@@ -64,32 +88,34 @@ const navResponsive = () => {
         const sections = document.querySelectorAll( 'section' );
         const header   = document.querySelector( 'header' );
 
-        sections.forEach( ( section, i ) => {
-            let sectionPosTop = section.getBoundingClientRect().top + scrollY - 120;
-            let sectionPosBottom = sectionPosTop + section.offsetHeight;
-            let headerPosTop = header.getBoundingClientRect().top + scrollY;
-            let headerPosBottom = headerPosTop + header.offsetHeight;
-            let currentItem = document.querySelector( '.active' );
-
-            if ( scrollY >= sectionPosTop && scrollY <= sectionPosBottom ) {
-                currentItem.classList.remove( 'active' );
-                menuItems[ i + 1 ].classList.add( 'active' );
-            } else if ( scrollY >= headerPosTop && scrollY <= headerPosBottom ) {
-                currentItem.classList.remove( 'active' );
-                menuItems[ 0 ].classList.add( 'active' );
-            }
-
-        } );
+        if ( !document.body.classList.contains( 'clases' ) ) {
+            sections.forEach( ( section, i ) => {
+                let sectionPosTop = section.getBoundingClientRect().top + scrollY - 120;
+                let sectionPosBottom = sectionPosTop + section.offsetHeight;
+                let headerPosTop = header.getBoundingClientRect().top + scrollY;
+                let headerPosBottom = headerPosTop + header.offsetHeight;
+                let currentItem = document.querySelector( '.active' );
+    
+                if ( scrollY >= sectionPosTop && scrollY <= sectionPosBottom ) {
+                    currentItem.classList.remove( 'active' );
+                    menuItems[ i + 1 ].classList.add( 'active' );
+                } else if ( scrollY >= headerPosTop && scrollY <= headerPosBottom ) {
+                    currentItem.classList.remove( 'active' );
+                    menuItems[ 0 ].classList.add( 'active' );
+                }
+    
+            } );
+        }
 
     } );
 
 }
 
 
-/* Contact form */
+/* Forms */
 
 /*  From validation */
-const validateForm = ( name, pronouns, email, message) => {
+const validateForm = ( name, pronouns, email, message, taller, paymentMethod ) => {
     let errorMessages =[];
     if( name.value === '' || name.value === null ) {
         errorMessages.push( 'Por favor ingresá tu nombre.' );
@@ -100,25 +126,41 @@ const validateForm = ( name, pronouns, email, message) => {
     if( email.value === '' || email.value === null || !email.value.includes( '@' ) ) {
         errorMessages.push( 'Por favor ingresá un email válido.' );
     }
+
     if( message.value === '' || message.value === null ) {
         errorMessages.push( 'Por favor escribí un mensaje.' );
     }
+
+    if( taller ) {
+        if( taller.value === null ) {
+            errorMessages.push( 'Por favor elegí un taller.' );
+        }
+    }
+
+    if( paymentMethod ) {
+        if( paymentMethod.value === null ) {
+            errorMessages.push( 'Por favor elegí un método de pago.' );
+        }
+    }
+
 
     return errorMessages;
 }
 
 /* EmailJS */
-const sendMail = ( name, pronouns, email, message, submit ) => {
+const sendMail = ( name, pronouns, email, message, taller, paymentMethod, submit, template ) => {
     let tempParams = {
         name: name.value,
         pronouns: pronouns.value,
         email: email.value,
         message: message.value,
+        taller: taller.value ? taller.value : null,
+        paymentMethod: paymentMethod.value ? paymentMethod.value : null
     }
 
     emailjs.send(
-        'service_9kg3woi',
-        'template_16z0p8m',
+        'service_5p8sqsw',
+        template,
         tempParams
     )
     .then( () => {

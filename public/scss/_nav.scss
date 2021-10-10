@@ -88,3 +88,12 @@ nav#main-menu {
     }
 
 }
+
+body.clases {
+    nav {
+        a {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

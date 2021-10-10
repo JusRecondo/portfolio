@@ -14,4 +14,8 @@ header {
     @include media-wide {
         margin: 0 180px;
     }
+
+    /* &.header-clases {
+        padding-bottom: 0;
+    } */
 }

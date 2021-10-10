@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+    
+    <meta name="msapplication-TileColor" content="#f3ddff" />
+    <meta name="description" content="Jus Recondo: desarrolladore web Front End, docente y músique.">
+
+    <meta name="twitter:description" content="Jus Recondo: desarrolladore web Front End, docente y músique.">
+	<meta name="twitter:image" content="https://jusrecondo.web.app/img/jusrecondo.png" />
+	<meta name="twitter:title" content="Jus Recondo">
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta property="og:title" content="Jus Recondo">
+    <meta property="og:description" content="Jus Recondo: desarrolladore web Front End, docente y músique.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://jusrecondo.web.app/" />
+	<meta property="og:image" content="https://jusrecondo.web.app/img/jusrecondo.png" />
+    <meta property="og:image:secure_url" content="https://jusrecondo.web.app/img/jusrecondo.png" />
+    <meta property="og:image:type" content="image/png" /> 
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="styles.min.css">
+    <script src="js/main.js"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+    emailjs.init("user_PIjbUyaCi8gSWmC2PaKct");
+    })();
+    </script>
+</head>
+<body class="clases">
+    <nav id="main-menu">
+        <a href="/index.html">&#60; Volver<img src="img/cat.png" aria-label="Volver al Inicio"></a>
+    </nav>
+    <header class="header-clases">
+        <h1>Clases</h1>  
+    </header>
+    <main>
+        <section id="taller">
+            <article class="inner-container">
+                <h2>Taller práctico de HTML, CSS y JS</h2>
+                <p>
+                    Cuatro encuentros practicos donde vamos a hacer pequeños proyectos codeando juntes. <br>
+                    Vamos a usar HTML, CSS y JS sin ningun framework o libreria.
+                </p>
+                <p>
+                    A partir de un diseño sencillo, en el primer encuentro vamos a empezar maquetando una pagina con varias secciones usando HTML semántico y CSS con Flexbox.
+                </p>
+                <p>    
+                    En el segundo encuentro vamos a hacer responsive el menu de navegacion usando JS y haciendo ajustes en el CSS, tambien le vamos a dar algunas otras funcionalidades.
+                </p>
+                <p>     
+                    Luego sumaremos un slider o carrousel de imagenes en la misma página y finalmente un formulario de contacto funcional.
+                </p>
+
+                <ul>
+                    <li>
+                        Maquetado HTML y CSS de pagina
+                    </li>
+                    <li>
+                        Menu responsive: aplicamos estilos con css y funcionalidad con JS a un menu de navegación
+                    </li>
+                    <li>
+                        Slider con CSS y JS
+                    </li>
+                    <li>
+                        Formulario con validación y funcional usando JS (integración con EmailJS)
+                    </li>
+                </ul>
+            </article>
+        </section>
+        <section id="info">
+            <article class="inner-container">
+            <h2>Info</h2>
+            <p>
+                Cada encuentro tendra una duración de 2hs en modalidad virtual, y esta pensado para que les asistentes realicen el ejercicio en el momento de la clase (las clases van a quedar grabadas también).
+            </p>    
+            <p>
+                Esta orientado a personas que ya tengan conocimientos basicos en HTML, CSS, JS y uso de editor de código.
+            </p>   
+            <p>
+                <strong>
+                    Días y horarios: Miércoles 18 - 20 hs <br>
+                    Inicio: Miércoles 20/10
+                </strong>
+            </p> 
+            <p>
+                El costo total del taller es de $4000. Pudiendo abonarse por transferencia bancaria o mercado pago. <br>
+                El mismo debe abonarse antes de la fecha de inicio. 
+            </p>
+
+            <h3>Requisitos</h3>
+
+            <ul>
+                <li>
+                    Computadora y conexión a Internet (las clases se harán a través de Google Meet)
+                </li>
+                <li>
+                    Editor de código.
+                </li>
+                <li>
+                    Conocimientos básicos en HTML, CSS y JS. El taller va a ser completamente práctico, repasando conceptos a medida que
+                    realizamos los ejercicios. 
+                </li>
+            </ul>
+            
+        </article>
+        </section>
+        <section id="proximamente">
+            <article class="inner-container">
+                <h3>Próximamente: taller de introducción a HTML, CSS y JS</h3>
+            </article>
+        </section>
+
+        <section id="inscripcion">
+            <article>
+                <h2>Inscripción</h2>
+                <p>Para inscribirte en el taller llená este formulario, luego te va a llegar por mail la info para realizar el pago
+                    y así confirmar tu lugar :)
+                </p>
+                <p>
+                    Por cualquier duda podes escribirme directamente a <a href="mailto:justina.recondo@gmail.com"><strong>este correo</strong>.</a>
+                </p>
+                
+            </article>
+            
+            <article>
+                <form id="inscripcion-form">
+                    <label>Nombre y Apellido (no necesariamente como el DNI)
+                        <input type="text" name="name" id="name" autocomplete="off">
+                    </label>
+                    <label>Pronombre/s
+                        <input type="text" name="pronouns" id="pronouns" autocomplete="off">
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" id="email" autocomplete="off">
+                    </label>
+                    <label>Taller</label>                   
+                    <label class="taller">
+                        <input type="radio" name="taller" value="html, cs, js practico" checked> Taller de HTML, CSS y JS práctico
+                    </label>
+                    <label>Método de pago</label>                   
+                    <label class="metodo-pago">
+                        <input type="radio" name="metodo-pago" value="transferencia" checked>Transferencia
+                    </label>
+                    <label class="metodo-pago">
+                        <input type="radio" name="payment-method" value="mercado pago">Mercado Pago
+                    </label>
+                    <label>Comentarios
+                        <textarea name="message" id="message" autocomplete="off"></textarea>
+                    </label>
+    
+                    <input type="submit" value="Enviar!" id="submit">
+
+                    <p class="error-message hidden"></p>
+                    <p class="notification hidden">
+                        Tu mensaje fue enviado! Gracias por ponerte en contacto :)
+                    </p>
+                    <input type="reset" value="Enviar otro mensaje" id="reset" class="hidden">
+                </form>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+        <small>Hecho con 🖤 por jus recondo - 2021 |<a href="https://github.com/JusRecondo/portfolio" target="_blank"> Ver este proyecto en GitHub</a></small>
+    </footer>    
+</body>
+</html>
