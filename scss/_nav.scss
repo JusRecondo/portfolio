@@ -1,0 +1,90 @@
+/* 
+    Style for navigation menu
+*/
+
+nav#main-menu {
+    @include bg-config;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    height: 80px;
+    transition: height, box-shadow 0.2s ease-in-out;
+
+    &.shrink {
+        height: 60px;
+        @include shadow;
+    }
+
+    @include media-desktop {
+        height: 100px;
+        justify-content: center;
+
+        &.shrink {
+            height: 80px;
+        }
+    }
+
+    button#burger-menu-toggler {
+        border-style: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+
+        @include media-desktop {
+            display: none;
+        }
+
+        #open-menu,
+        #close-menu {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        #close-menu {
+            opacity: 0;
+            height: 0;
+        }
+
+        .bar {
+            background-color: #000;
+            height: 5px;
+            width: 100%;
+            border-radius: 5px;
+            -webkit-transition: -webkit-transform 0.3s ease-in-out;
+            transition: -webkit-transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+        }
+    }
+
+    ul {
+        width: 100%;
+        display: none;
+        align-items: center;
+        justify-content: space-evenly;
+
+        @include media-desktop {
+            display: flex;
+        }
+
+        li.menu-item {
+            font-size: 18px;
+
+            &.active,
+            &:hover {
+                color: $text-pink;
+                font-weight: 600;
+            }
+        }
+    }
+
+}

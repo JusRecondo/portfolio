@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+      color: $text-pink;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    @include bg-config($bg-pink, $text-dark);
+
+    @include media-desktop {
+            
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-weight: 400;
+    }
+
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+        margin: 24px 0;
+
+        @include media-desktop {
+            margin: 32px 0;
+            font-size: 56px;
+        }
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 32px;
+        margin: 16px 0;
+        align-self: flex-start;
+
+        @include media-desktop {
+            font-size: 40px;
+            line-height: 48px;
+            margin: 24px 0;
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 12px 0;
+
+        @include media-desktop {
+            font-size: 30px;
+            line-height: 38px;
+            margin: 20px 0;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 10px 0;
+        align-self: flex-start;
+        text-align: justify;
+
+        @include media-desktop {
+            font-size: 18px;
+            line-height: 24px;
+            margin: 20px 0;
+        } 
+        
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+
+        @include media-desktop {
+            padding: 160px 40px 0;
+        }
+    }
+
+    article {
+        margin: 20px 0;
+
+        @include media-desktop {
+            margin: 40px 0;
+        }
+    }
+
+    .hidden {
+        opacity: 0;
+        height: 0;
+    }
+
+}

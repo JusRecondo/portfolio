@@ -1,0 +1,8 @@
+/* 
+    Styles for footer
+*/
+
+footer {
+    @include flex-center;
+    height: 80px;
+}

@@ -1,0 +1,287 @@
+/* 
+    Styles for Main content
+*/
+
+main {
+
+    @include media-desktop {
+        margin: 0 80px;
+    }
+
+    @include media-wide {
+        margin: 0 180px;
+    }
+
+    section {
+
+        &#about,
+        &#skills {
+            article.inner-container {
+                @include card;
+                margin: 0;
+                width: 100%;
+            }
+        }
+
+        &#skills {
+            /* @media (max-width: $breakpoint-desktop) {
+                padding-top: 120px;
+            } */
+        }
+
+        &#portfolio {
+            padding-top: 80px;
+
+            @include media-desktop {
+                padding-top: 120px;
+            }
+
+            article {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+
+                @include media-desktop {
+                    flex-direction: row;
+                    align-items: stretch;
+                }
+
+                h3,
+                p {
+                    flex-basis: 100%;
+                    text-align: center;
+
+                    @include media-desktop {
+                        flex-basis: 70%;
+                    }
+                }
+
+                h3 {
+                    background-color: $bg-white;
+
+                    @include media-desktop {
+                        width: 70%;
+                    }
+                }
+                
+                figure {
+                    margin: 32px 0;
+                    width: 100%;
+                    max-width: 500px;
+                    min-height: 490px;
+                    text-align: center;
+                    overflow: hidden;
+                    @include card;
+
+                    @include media-tablet {
+                        margin: 40px 0;
+                    }
+
+                    @include media-wide {
+                        max-width: 540px;
+                    }
+
+                    img {
+                        object-fit: cover;
+                        object-position: top;
+                        height: 400px;
+                        width: 100%;
+                        transition: transform 0.2s ease-in-out;
+
+                        &:hover {
+                            transform: scale(1.08);
+                        }
+                    }
+
+                    figcaption {
+                        margin-top: 16px;
+                        
+                        a {
+                            display: block;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                &.speaker {
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                       align-self: center;
+                    }
+
+                    iframe {
+                        @include card;
+                        max-width: 100%;
+                        margin: 16px 0;
+
+                        @include media-desktop {
+                            width: 700px;
+                            height: 400px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        &#contact {
+            @include bg-config;
+
+            @include media-desktop {
+                flex-direction: row;
+                align-items: flex-start;
+                padding-top: 80px;
+            }
+
+            @include media-wide {
+                padding-top: 120px;
+            }
+
+            article {
+                width: 100%;
+
+                @include media-desktop {
+                    width: 50%;
+
+                    &:first-child {
+                        margin-right: 40px;
+                    }
+                }
+
+                ul#rrss {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    margin-top: 24px;
+
+                    li {
+                        width: 60px;
+                        height: 60px;
+
+                        .rrss-icon {
+                            &:hover {
+                                @include shining($text-pink);
+                                padding: 4px;
+                                transform: scale(1.1);
+                                transition: transform 0.2s ease-in-out;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            form#contact-form {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+
+                @include media-desktop {
+                    margin-top: 80px;
+                }
+                
+                label {
+                    font-size: 14px;
+                }
+
+                input {
+                    height: 36px;
+                }
+
+                input,
+                textarea {
+                    @include bg-config;
+                    width: 100%;
+                    border: 1px solid $text-dark;
+                    border-radius: 0;
+                    padding: 8px; 
+                    font-size: 14px;
+                    margin: 4px 0 12px;
+                    outline: none;
+
+                    &:focus:not(#reset),
+                    &.shine {
+                        border: 1px solid $text-light;
+                    }
+                }
+
+                input {
+                    &#name {
+                        &:focus,
+                        &.shine {
+                            @include shining($purple);
+                        }
+                    }
+
+                    &#pronouns {
+                        &:focus,
+                        &.shine {
+                            @include shining($blue);
+                        }
+                    }
+
+                    &#email {
+                        &:focus,
+                        &.shine {
+                            @include shining($green);
+                        }
+                    }
+
+                    &#submit {
+                        &:focus,
+                        &.shine {
+                            @include shining($red);
+                        }
+                    }
+
+                    &#reset {
+                        margin-top: 16px;
+
+                        &:focus,
+                        &.shine {
+                            @include shining($purple);
+                        }
+
+                        &.hidden {
+                            padding: 0;
+                            margin: 0;
+                            height: 0;
+                        }
+
+                        @include media-desktop {
+                            width: 50%;
+                        }
+                    }
+
+                    &#submit,
+                    &#reset {
+                        cursor: pointer;
+                    }
+                }
+
+                textarea {
+                    resize: none;
+                    height: 160px;
+
+                    &:focus,
+                    &.shine {
+                        @include shining($orange);
+                    }
+                }
+
+                p {
+                    &.notification {
+                        margin: 0;
+                    }
+                }
+            }
+
+        }
+    }
+}

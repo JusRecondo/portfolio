@@ -1,0 +1,97 @@
+
+
+$breakpoint-mobile: 360px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1500px;
+
+/* Colores */
+$bg-white: #fbfbfb;
+$bg-pink: #f3ddff;
+$text-dark: #050505;
+$text-light: #fbfbfb;
+$text-pink: darken(#f3ddff, 20);
+
+/*  Colores del form */
+$purple: rgb(122, 52, 221, 0.67);
+$blue: rgb(52, 127, 221, 0.67);
+$green: rgb(58, 185, 133, 0.67);
+$orange: rgb(221, 170, 52, 0.67);
+$red: rgb(221, 52, 52, 0.67);;
+
+
+/* Fuentes */
+$primary-font: 'Montserrat', sans-serif;
+
+
+/* Max-width */
+$max-width-1: 700px;
+$max-width-2: 1200px;
+
+$img-directory: "img/";
+
+
+/* Mixins */
+/* Flex */
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+/* Fondos */
+@mixin bg-config($bg-color: $bg-white, $text-color: $text-dark) {
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+/* Media queries */
+@mixin media-mobile {
+    @media screen and(max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@mixin media-tablet{
+    @media screen and (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin media-desktop{
+    @media screen and (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+@mixin media-wide{
+    @media screen and (min-width: $breakpoint-wide) {
+        @content;
+    }
+}
+
+@mixin shadow{
+    box-shadow: 0px 4px 4px rgb(5, 5, 5, 0.25);
+}
+
+@mixin shining($color) {
+    box-shadow: 0 0 5px $color;
+}
+
+@mixin card {
+    /* border: 1px solid #555; */
+    /* border-radius: 5px; */
+    background-color: $bg-white;
+    padding: 16px;
+    @include shadow;
+}
+
+@import 'normalize';
+@import 'general';
+@import 'fonts';
+@import 'body-changes';
+@import 'header';
+@import 'nav';
+@import 'footer';
+@import 'main';

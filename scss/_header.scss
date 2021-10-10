@@ -1,0 +1,17 @@
+/* 
+    Styles for header
+*/
+
+header {
+
+    padding: 140px 36px 40px;
+
+    @include media-desktop {
+        margin: 0 80px;
+        padding: 220px 56px 40px;
+    }
+
+    @include media-wide {
+        margin: 0 180px;
+    }
+}
