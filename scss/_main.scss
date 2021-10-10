@@ -24,13 +24,10 @@ main {
         }
 
         &#skills {
-            /* @media (max-width: $breakpoint-desktop) {
-                padding-top: 120px;
-            } */
+
         }
 
         &#portfolio {
-            padding-top: 80px;
 
             @include media-desktop {
                 padding-top: 120px;
