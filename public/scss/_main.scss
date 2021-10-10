@@ -16,17 +16,18 @@ main {
 
         &#about,
         &#skills,
-        &#taller,
-        &#info,
-        &#proximamente {
+        &.taller {
             article.inner-container {
-                @include card;
+                @include card(16px);
                 margin: 0;
                 width: 100%;
             }
         }
 
         &#portfolio {
+            h2 {
+                font-weight: 600;
+            }
 
             @include media-desktop {
                 padding-top: 120px;
@@ -43,24 +44,18 @@ main {
                 @include media-desktop {
                     flex-direction: row;
                     align-items: stretch;
+                    justify-content: space-between;
+                    max-width: 1200px;
                 }
 
                 h3,
                 p {
                     flex-basis: 100%;
                     text-align: center;
-
-                    @include media-desktop {
-                        flex-basis: 70%;
-                    }
                 }
 
                 h3 {
                     background-color: $bg-white;
-
-                    @include media-desktop {
-                        width: 70%;
-                    }
                 }
                 
                 figure {
@@ -70,7 +65,7 @@ main {
                     min-height: 490px;
                     text-align: center;
                     overflow: hidden;
-                    @include card;
+                    @include card(16px);
 
                     @include media-tablet {
                         margin: 40px 0;
@@ -111,7 +106,7 @@ main {
                     }
 
                     iframe {
-                        @include card;
+                        @include card(16px);
                         max-width: 100%;
                         margin: 16px 0;
 
@@ -129,6 +124,9 @@ main {
         &#contact,
         &#inscripcion {
             @include bg-config;
+            h2 {
+                font-weight: 600;
+            }
 
             @include media-desktop {
                 flex-direction: row;
@@ -295,23 +293,25 @@ main {
         }
 
         /* Página Clases  */
-        &#taller,
-        &#info,
-        &#proximamente {
+        &.taller {
             padding: 0 20px 40px;
+
+            article.inner-container {
+                @include card(16px 16px 40px);
+            }
 
             @include media-desktop {
                 padding: 0 40px 40px;
             }
 
             ul {
-                padding: 18px;
+                padding: 0 18px;
                 list-style-type: square;
-            }
-        }
 
-        &#proximamente {
-            padding-bottom: 80px;
+                li {
+                    margin: 8px 0;
+                }
+            }
         }
     }
 }

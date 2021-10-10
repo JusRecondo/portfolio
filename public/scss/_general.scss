@@ -17,25 +17,21 @@ a {
 ul {
   list-style-type: none;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 24px;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -54,7 +50,6 @@ body {
             
     }
 
-    h1,
     h2,
     h3 {
         font-weight: 400;
@@ -64,6 +59,7 @@ body {
         font-size: 48px;
         line-height: 56px;
         margin: 24px 0;
+        font-weight: 600;
 
         @include media-desktop {
             margin: 32px 0;
@@ -101,12 +97,13 @@ body {
         line-height: 22px;
         margin: 10px 0;
         align-self: flex-start;
-        text-align: justify;
+        text-align: left;
 
         @include media-desktop {
             font-size: 18px;
             line-height: 24px;
             margin: 20px 0;
+            text-align: justify;
         } 
         
     }

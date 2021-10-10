@@ -76,14 +76,12 @@ $img-directory: "img/";
 }
 
 @mixin shining($color) {
-    box-shadow: 0 0 5px $color;
+    box-shadow: 0 0 3px $color;
 }
 
-@mixin card {
-    /* border: 1px solid #555; */
-    /* border-radius: 5px; */
+@mixin card($padding) {
     background-color: $bg-white;
-    padding: 16px;
+    padding: $padding;
     @include shadow;
 }
 
