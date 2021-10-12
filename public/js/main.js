@@ -90,7 +90,7 @@ const navResponsive = () => {
 
         if ( !document.body.classList.contains( 'clases' ) ) {
             sections.forEach( ( section, i ) => {
-                let sectionPosTop = section.getBoundingClientRect().top + scrollY - 120;
+                let sectionPosTop = section.getBoundingClientRect().top + scrollY - 90;
                 let sectionPosBottom = sectionPosTop + section.offsetHeight;
                 let headerPosTop = header.getBoundingClientRect().top + scrollY;
                 let headerPosBottom = headerPosTop + header.offsetHeight;
