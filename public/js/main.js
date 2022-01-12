@@ -31,8 +31,8 @@ document.addEventListener( "DOMContentLoaded", () => {
     
 
     const inscripcionForm = document.querySelector( '#inscripcion-form' );
-    const paymentMethod = document.querySelector( 'input[name="payment-method"]' );
-    const taller = document.querySelector( 'input[name="taller"]' );
+    const paymentMethodInput = document.querySelector( 'input[name="payment-method"]' );
+    const tallerInput = document.querySelector( 'input[name="taller"]' );
 
     if ( inscripcionForm ) {
         inscripcionForm.addEventListener( 'submit', ( e ) => {
@@ -44,7 +44,7 @@ document.addEventListener( "DOMContentLoaded", () => {
                 errorMessage.classList.remove( 'hidden' );
             } else {
                 errorMessage.classList.add( 'hidden' );           
-                sendMail( name, pronouns, email, message, taller, paymentMethod, submit, inscripcionTemplate);
+                sendMail( name, pronouns, email, message, tallerInput, paymentMethodInput, submit, inscripcionTemplate);
             }
         } );
     }
@@ -154,9 +154,13 @@ const sendMail = ( name, pronouns, email, message, taller, paymentMethod, submit
         pronouns: pronouns.value,
         email: email.value,
         message: message.value,
-        taller: taller.value ? taller.value : null,
-        paymentMethod: paymentMethod.value ? paymentMethod.value : null
     }
+
+    if( taller & paymentMethod ) {
+        tempParams.taller = taller.value;
+        tempParams.paymentMethod = taller.paymentMethod;
+    }
+
 
     emailjs.send(
         'service_5p8sqsw',
